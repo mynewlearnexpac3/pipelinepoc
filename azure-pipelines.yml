@@ -48,3 +48,9 @@ stages:
     steps:
     - script: |
         echo "This is Stage Print2"
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
