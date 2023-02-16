@@ -3,14 +3,14 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-# trigger:
-#   - master
-
 trigger:
-  batch: true
-  branches:
-    include:
-    - master
+  - master
+
+# trigger:
+#   batch: true
+#   branches:
+#     include:
+#     - master
   
 variables:
   tag: '$(Build.BuildId)'
