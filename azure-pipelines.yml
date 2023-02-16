@@ -1,0 +1,37 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  name: default
+
+stages:
+- stage: Print1
+  displayName: Printing Predefined Variables
+  jobs:
+  - job: PrintingVariables
+  
+    displayName: Print Variables
+    pool:
+      name: default
+    steps:
+    - script: |
+        echo "Build_SourceBranch:" + ":" + $(Build.SourceBranch)
+        echo "Build.SourceBranchName:" + ":" + $(Build.SourceBranchName)
+
+- stage: Print2
+  displayName: Printing Stage2
+  dependsOn: Print1
+  jobs:
+  - job: EchoVariables
+  
+    displayName: Echo Variables
+    pool:
+      name: default
+    steps:
+    - script: |
+        echo "This is Stage Print2"'
