@@ -34,4 +34,4 @@ stages:
       name: default
     steps:
     - script: |
-        echo "This is Stage Print2"'
+        echo "This is Stage Print2"
